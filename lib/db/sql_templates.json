@@ -17,7 +17,7 @@
   "getBinByUrlAndRevision": "SELECT * FROM `sandbox` WHERE `url`=? AND `revision`=? LIMIT 1",
   "getLatestBinForUser": "SELECT `url`, `revision` FROM `owners` WHERE `name`=? AND `last_updated` != 0 ORDER BY `last_updated` DESC LIMIT 1",
   "setBinOwner": "INSERT INTO `owners` (`name`, `url`, `revision`, `last_updated`, `summary`, `html`, `css`, `javascript`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-  "touchOwners": "UPDATE `owners` SET `last_updated`=? WHERE `name`=? AND `url`=? AND `revision` = ?",
+  "touchOwners": "UPDATE `owners` SET `last_updated`=? WHERE `name`=? AND `url`=? AND `revisifon` = ?",
   "updateOwners": "UPDATE `owners` SET `last_updated`=?, `summary`=?, `:panel`=? WHERE `name`=? AND `url`=? AND `revision` = ?",
   "populateOwners": "UPDATE `owners` SET `last_updated`=?, `summary`=?, `html`=?, `css`=?, `javascript`=? WHERE `name`=? AND `url`=? AND `revision` = ?",
   "archiveBin": "UPDATE `owners` SET `archive`=? WHERE `name`=? AND `url`=? AND `revision` = ?",
@@ -26,5 +26,8 @@
   "getUserForForgotToken": "SELECT `ownership`.*, expires FROM `ownership` INNER JOIN `forgot_tokens` ON `name` = `owner_name` WHERE `token` = ? AND `forgot_tokens`.`expires` >= ?",
   "setForgotToken": "INSERT INTO `forgot_tokens` (`owner_name`, `token`, `expires`, `created`) VALUES (?, ?, ?, ?)",
   "deleteExpiredForgotToken": "DELETE FROM `forgot_tokens` WHERE `expires` <= ? OR `token`=? OR `owner_name`=?",
-  "reportBin": "UPDATE `sandbox` SET `reported`=? WHERE `url`=? AND `revision`=? AND `active`='y'"
+  "reportBin": "UPDATE `sandbox` SET `reported`=? WHERE `url`=? AND `revision`=? AND `active`='y'",
+  "getCreatedTime": "SELECT `created` FROM `sandbox` WHERE `url`=? AND `revision`=? LIMIT 1",
+  "set_status":"UPDATE `sandbox` SET `is_alive`=? WHERE `url`=?",
+  "get_status":"SELECT is_alive FROM `sandbox` WHERE `url`=? LIMIT 1"
 }

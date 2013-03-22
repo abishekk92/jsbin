@@ -17,12 +17,12 @@
     <div class="buttons">
       {{#embed}}
       <span class="menu">
-        <a target="_blank" href="{{code_id_path}}/edit" class="brand button group"><img src="{{static}}/images/favicon.png"> <h1>JS Bin</h1></a><a href="{{code_id_path}}/save" target="_blank" class="button save">Save</a>
+        <a target="_blank" href="{{code_id_path}}/edit" class="brand button group"><img src="{{static}}/images/favicon.png"> <h1>Menu</h1></a><a href="{{code_id_path}}/save" target="_blank" class="button save">Save</a>
       </span>
       {{/embed}}
       {{^embed}}
       <div class="menu">
-        <a href="{{root}}{{code_id_path}}/edit#actionmenu" target="_blank" class="brand button button-dropdown group"><img src="{{static}}/images/favicon.png"> <h1>JS Bin</h1></a>
+        <a href="{{root}}{{code_id_path}}/edit#actionmenu" target="_blank" class="brand button button-dropdown group"><img src="{{static}}/images/favicon.png"> <h1>Menu</h1></a>
         <div class="dropdown" id="actionmenu">
           <div class="dropdownmenu">
             <a id="createnew" class="button group" title="Create fresh bin" href="{{root}}">New</a>
@@ -265,7 +265,7 @@ Include alerts, prompts &amp; confirm boxes">Run with JS</button>
         </span>
       </div>
     </div>
-  </div>
+   
   <form {{#embed}}target="_blank"{{/embed}} id="saveform" method="post" action="{{code_id_path}}/save">
     <input type="hidden" name="method" />
     <input type="hidden" name="_csrf" value="{{token}}" />

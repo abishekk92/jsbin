@@ -1,0 +1,1 @@
+ALTER TABLE sandbox ADD COLUMN is_alive VARCHAR(1) DEFAULT '1';

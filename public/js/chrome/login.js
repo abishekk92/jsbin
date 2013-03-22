@@ -4,7 +4,6 @@ var $username = $('#username'),
 
 var $loginForm = $('form.login').submit(function (event) {
   event.preventDefault();
-
   var form = $(this),
       name = form.find('input[name=username]').val(),
       key = form.find('input[name=password]').val(),
